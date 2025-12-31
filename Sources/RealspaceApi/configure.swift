@@ -45,6 +45,9 @@ public func configure(_ app: Application) async throws {
     app.migrations.add(CreatePostUserLike())
     app.migrations.add(CreateTopicPostUserLike())
 
+    // 5. Schema updates
+    app.migrations.add(AddIsPublicToListItem())
+
     app.views.use(.leaf)
 
     // register routes

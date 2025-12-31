@@ -30,6 +30,7 @@ struct ListItemController: RouteCollection {
         let listItem = ListItem(
             action: createDTO.action,
             subject: createDTO.subject,
+            isPublic: createDTO.isPublic ?? false,
             userID: user.id!
         )
 

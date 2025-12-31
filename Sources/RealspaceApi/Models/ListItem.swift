@@ -13,6 +13,9 @@ final class ListItem: Model, Content {
     @Field(key: "subject")
     var subject: String
 
+    @Field(key: "is_public")
+    var isPublic: Bool
+
     @Timestamp(key: "created_at", on: .create)
     var createdAt: Date?
 
@@ -22,10 +25,11 @@ final class ListItem: Model, Content {
 
     init() { }
 
-    init(id: UUID? = nil, action: String, subject: String, userID: UUID) {
+    init(id: UUID? = nil, action: String, subject: String, isPublic: Bool = false, userID: UUID) {
         self.id = id
         self.action = action
         self.subject = subject
+        self.isPublic = isPublic
         self.$user.id = userID
     }
 }
